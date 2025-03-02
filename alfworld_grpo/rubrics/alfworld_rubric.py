@@ -8,8 +8,8 @@ class AlfworldRubric(ToolRubric):
         self.reward_funcs = [
             self.success_reward_func,
             #self.difflib_task_score_reward_func,
-            self.parser.get_xml_reward_func,
-            self.parser.get_format_reward_func,
+            lambda prompts, completions, **kwargs: self.parser.get_xml_reward_func(completions, **kwargs),
+            lambda prompts, completions, **kwargs: self.parser.get_format_reward_func(completions, **kwargs),
             self.tool_execution_reward_func
         ]
 
