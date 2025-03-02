@@ -3,7 +3,7 @@ from alfworld_grpo.tools import alfworld_tools
 from alfworld_grpo.envs.alfworld_env import AlfworldEnv
 from alfworld_grpo.utils.config_utils import get_default_grpo_config
 import torch
-from trl import get_peft_config, ModelConfig
+from peft import LoraConfig
 
 model_name = "Qwen/Qwen2.5-7B-Instruct"
 model_kwargs = dict(
@@ -13,6 +13,15 @@ model_kwargs = dict(
     load_in_4bit=True
 )
 model, tokenizer = vf.get_model_and_tokenizer(model_name=model_name, model_kwargs=model_kwargs)
+
+peft_config = LoraConfig(
+    target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj",],
+    alpha=64,
+    dropout=0,
+    r=64,
+)
+
+model.add_adapter(peft_config)
 
 vf_env = AlfworldEnv(
     dataset="alfworld",
@@ -24,12 +33,7 @@ trainer = vf.GRPOEnvTrainer(
     reward_funcs=vf_env.get_rubric(),
     args=get_default_grpo_config(run_name="alfworld", num_gpus=2, hub_repo_id=f'crislmfroes/AlfWorld-{model_name.split("/")[1]}'),
     train_dataset=vf_env.get_dataset(),
-    peft_config=get_peft_config(model_args=ModelConfig(
-        lora_target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj",],
-        lora_alpha=64,
-        lora_dropout=0,
-        lora_r=64,
-    ))
+    peft_config=peft_config)
 )
 trainer.train()
 trainer.push_to_hub()
