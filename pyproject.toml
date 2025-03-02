@@ -13,4 +13,6 @@ dependencies = [
     "vllm",
     "trl",
     "qwen_vl_utils",
+    "unsloth",
+    "unsloth-zoo",
 ]
