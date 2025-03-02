@@ -1,0 +1,16 @@
+[project]
+name = "alfworld-grpo"
+requires-python = ">=3.11"
+version = "0.1.0"
+dependencies = [
+    "verifiers",
+    "liger-kernel",
+    "alfworld[full]",
+    "transformers",
+    "accelerate",
+    "peft",
+    "bitsandbytes",
+    "vllm",
+    "trl",
+    "qwen_vl_utils",
+]

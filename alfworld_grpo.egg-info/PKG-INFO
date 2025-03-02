@@ -1,0 +1,14 @@
+Metadata-Version: 2.2
+Name: alfworld-grpo
+Version: 0.1.0
+Requires-Python: >=3.11
+Requires-Dist: verifiers
+Requires-Dist: liger-kernel
+Requires-Dist: alfworld[full]
+Requires-Dist: transformers
+Requires-Dist: accelerate
+Requires-Dist: peft
+Requires-Dist: bitsandbytes
+Requires-Dist: vllm
+Requires-Dist: trl
+Requires-Dist: qwen_vl_utils
