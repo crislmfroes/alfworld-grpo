@@ -4,7 +4,7 @@ import difflib
 
 class AlfworldRubric(ToolRubric):
     def __init__(self):
-        super().__init__()
+        super(AlfworldRubric, self).__init__()
         self.reward_funcs = [
             self.success_reward_func,
             self.difflib_task_score_reward_func,
