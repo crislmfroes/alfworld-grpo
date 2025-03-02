@@ -1,5 +1,5 @@
 [project]
-name = "alfworld-grpo"
+name = "alfworld_grpo"
 requires-python = ">=3.10"
 version = "0.1.0"
 dependencies = [
