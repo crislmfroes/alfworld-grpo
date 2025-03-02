@@ -29,6 +29,7 @@ vf_env = AlfworldEnv(
 )
 trainer = vf.GRPOEnvTrainer(
     model=model,
+    processing_class=tokenizer,
     env=vf_env,
     reward_funcs=vf_env.get_rubric(),
     args=get_default_grpo_config(run_name="alfworld", num_gpus=2, hub_repo_id=f'crislmfroes/AlfWorld-{model_name.split("/")[1]}'),
