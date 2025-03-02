@@ -33,7 +33,7 @@ trainer = vf.GRPOEnvTrainer(
     reward_funcs=vf_env.get_rubric(),
     args=get_default_grpo_config(run_name="alfworld", num_gpus=2, hub_repo_id=f'crislmfroes/AlfWorld-{model_name.split("/")[1]}'),
     train_dataset=vf_env.get_dataset(),
-    peft_config=peft_config)
+    peft_config=peft_config
 )
 trainer.train()
 trainer.push_to_hub()
