@@ -103,7 +103,7 @@ class AlfworldEnv(MultiStepEnv):
         )
         self.eval_dataset = None
         self.max_steps = max_steps
-        self.rubric = ToolRubric()
+        self.rubric = AlfworldRubric()
         self.llm_parser = XMLParser(fields=["reasoning", ("tool", "answer")])
         self.env_parser = XMLParser(fields=["result"])
 
