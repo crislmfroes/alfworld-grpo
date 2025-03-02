@@ -4,6 +4,7 @@ from alfworld_grpo.envs.alfworld_env import AlfworldEnv
 from alfworld_grpo.utils.config_utils import get_default_grpo_config
 import torch
 from peft import LoraConfig
+from trl import get_peft_config, ModelConfig
 
 
 model_name = "Qwen/Qwen2.5-7B-Instruct"
@@ -15,14 +16,13 @@ model_kwargs = dict(
 )
 model, tokenizer = vf.get_model_and_tokenizer(model_name=model_name, model_kwargs=model_kwargs)
 
-peft_config = LoraConfig(
-    target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj",],
+peft = get_peft_config(model_args=ModelConfig(
+    model_name_or_path=model_name,
+    lora_target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj",],
     lora_alpha=64,
     lora_dropout=0,
-    r=64,
-)
-
-#model.add_adapter(peft_config)
+    lora_r=64,
+))
 
 vf_env = AlfworldEnv(
     dataset="alfworld",
