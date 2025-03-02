@@ -18,7 +18,7 @@ model_kwargs = dict(
 )
 
 lora_rank = 64
-max_seq_length = 512
+max_seq_length = 2048
 
 model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = model_name,
