@@ -16,7 +16,7 @@ model_kwargs = dict(
 )
 model, tokenizer = vf.get_model_and_tokenizer(model_name=model_name, model_kwargs=model_kwargs)
 
-peft = get_peft_config(model_args=ModelConfig(
+peft_config = get_peft_config(model_args=ModelConfig(
     model_name_or_path=model_name,
     lora_target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj",],
     lora_alpha=64,
