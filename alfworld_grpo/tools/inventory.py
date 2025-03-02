@@ -1,6 +1,6 @@
 from alfworld_grpo.tools.env import get_env
 
-def look()->str:
+def inventory()->str:
     """Check your current inventory.
 
     Returns:
