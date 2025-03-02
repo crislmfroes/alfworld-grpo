@@ -187,6 +187,8 @@ class AlfworldEnv(MultiStepEnv):
             return f"Error: {str(e)}"
 
     def env_response(self, messages: List[Dict[str, str]], **kwargs: Any) -> Dict[str, str]:
+        print(messages)
+        exit()
         try:
             parsed = self.llm_parser.parse(messages[-1]["content"])
             # Check if we got a valid tool field (not just None from failed parsing)

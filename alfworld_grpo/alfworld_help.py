@@ -1,7 +1,4 @@
-from alfworld_grpo.tools.env import get_env
+from alfworld_grpo.tools import reset_env, look
 
-env = get_env()
-obs, info = env.reset()
-print(obs[0])
-obs, score, done, info = env.step(['help'])
-print(obs[0])
+print(reset_env())
+print(look())
