@@ -16,3 +16,5 @@ dependencies = [
     "unsloth",
     "unsloth-zoo",
 ]
+[tool.setuptools]
+py-modules = []
