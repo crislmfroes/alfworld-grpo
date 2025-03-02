@@ -21,7 +21,7 @@ trainer = vf.GRPOEnvTrainer(
     model=model,
     env=vf_env,
     reward_funcs=vf_env.get_rubric(),
-    args=get_default_grpo_config(run_name="alfworld", num_gpus=1, hub_repo_id=f'crislmfroes/AlfWorld-{model_name.split("/")[1]}'),
+    args=get_default_grpo_config(run_name="alfworld", num_gpus=2, hub_repo_id=f'crislmfroes/AlfWorld-{model_name.split("/")[1]}'),
     train_dataset=vf_env.get_dataset()
 )
 trainer.train()
