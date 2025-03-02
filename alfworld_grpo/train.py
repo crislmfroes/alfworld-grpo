@@ -5,6 +5,7 @@ from alfworld_grpo.utils.config_utils import get_default_grpo_config
 import torch
 from peft import LoraConfig
 
+
 model_name = "Qwen/Qwen2.5-7B-Instruct"
 model_kwargs = dict(
     torch_dtype=torch.bfloat16,
@@ -21,7 +22,7 @@ peft_config = LoraConfig(
     r=64,
 )
 
-model.add_adapter(peft_config)
+#model.add_adapter(peft_config)
 
 vf_env = AlfworldEnv(
     dataset="alfworld",
