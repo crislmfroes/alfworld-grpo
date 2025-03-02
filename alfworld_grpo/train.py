@@ -16,8 +16,8 @@ model, tokenizer = vf.get_model_and_tokenizer(model_name=model_name, model_kwarg
 
 peft_config = LoraConfig(
     target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj",],
-    alpha=64,
-    dropout=0,
+    lora_alpha=64,
+    lora_dropout=0,
     r=64,
 )
 
