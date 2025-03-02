@@ -3,7 +3,7 @@ name = "alfworld-grpo"
 requires-python = ">=3.10"
 version = "0.1.0"
 dependencies = [
-    "verifiers @ git+https://github.com/willccbb/verifiers.git --ignore-requires-python",
+    "verifiers @ git+https://github.com/willccbb/verifiers.git",
     "liger-kernel",
     "alfworld[full]",
     "transformers",
