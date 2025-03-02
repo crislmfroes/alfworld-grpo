@@ -54,4 +54,4 @@ trainer = vf.GRPOEnvTrainer(
     train_dataset=vf_env.get_dataset(),
 )
 trainer.train()
-trainer.push_to_hub()
+model.push_to_hub_merged(f"crislmfroes/Alfworld-{model_name}", tokenizer, save_method = "merged_16bit")

@@ -13,7 +13,7 @@ class AlfworldRubric(ToolRubric):
             self.tool_execution_reward_func
         ]
 
-    def difflib_task_score_reward_func(self, completions: list[list[dict[str, str]]], **kwargs)->list[float]:
+    def difflib_task_score_reward_func(self, prompts, completions: list[list[dict[str, str]]], **kwargs)->list[float]:
         rewards = []
         for c in completions:
             reset_idxs = []
@@ -52,7 +52,7 @@ class AlfworldRubric(ToolRubric):
             rewards.append(reward)
         return rewards
 
-    def success_reward_func(self, completions: list[list[dict[str, str]]], **kwargs)->list[float]:
+    def success_reward_func(self, prompts, completions: list[list[dict[str, str]]], **kwargs)->list[float]:
         rewards = []
         for c in completions:
             reward = 0.0
