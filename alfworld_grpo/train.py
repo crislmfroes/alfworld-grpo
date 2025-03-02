@@ -4,7 +4,7 @@ from alfworld_grpo.envs.alfworld_env import AlfworldEnv
 from alfworld_grpo.utils.config_utils import get_default_grpo_config
 import torch
 
-model_name = "HuggingFaceTB/SmolVLM-256M-Instruct"
+model_name = "Qwen/Qwen2.5-VL-3B-Instruct"
 model_kwargs = dict(
     torch_dtype=torch.bfloat16,
     attn_implementation="flash_attention_2",
