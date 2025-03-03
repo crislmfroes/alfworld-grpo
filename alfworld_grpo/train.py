@@ -9,7 +9,7 @@ from peft import LoraConfig, get_peft_model
 model_name = "Qwen/Qwen2.5-7B-Instruct"
 model_kwargs = dict(
     torch_dtype=torch.bfloat16,
-    attn_implementation="flash_attention_2",
+    attn_implementation="xformers",
     use_cache=False,
     load_in_4bit=True
 )
