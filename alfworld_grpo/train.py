@@ -8,8 +8,8 @@ from peft import LoraConfig, get_peft_model
 
 model_name = "Qwen/Qwen2.5-7B-Instruct"
 model_kwargs = dict(
-    torch_dtype=torch.float16,
-    attn_implementation="eager",
+    #torch_dtype=torch.float16,
+    #attn_implementation="eager",
     use_cache=False,
     load_in_4bit=True
 )
@@ -20,7 +20,7 @@ peft_config = LoraConfig(
     r=16,
     lora_alpha=64,
     lora_dropout=0.05,
-    target_modules=["q_proj", "k_proj", "v_proj"]
+    target_modules=["q_proj", "k_proj", "v_proj"],
 )
 
 model = get_peft_model(model, peft_config)
