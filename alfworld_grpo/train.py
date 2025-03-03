@@ -6,7 +6,7 @@ import torch
 from peft import LoraConfig, get_peft_model
 
 
-model_name = "Qwen/Qwen2.5-7B-Instruct"
+model_name = "unsloth/Qwen2.5-7B-bnb-4bit"
 model_kwargs = dict(
     #torch_dtype=torch.float16,
     #attn_implementation="eager",
