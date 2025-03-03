@@ -104,7 +104,7 @@ class AlfworldEnv(MultiStepEnv):
         self.eval_dataset = None
         self.max_steps = max_steps
         self.rubric = AlfworldRubric()
-        self.llm_parser = XMLParser(fields=["reasoning", ("tool", "answer")])
+        self.llm_parser = XMLParser(fields=["reasoning", "tool", "answer"])
         self.env_parser = XMLParser(fields=["result"])
 
     def get_dataset(self, **kwargs: Any) -> Dataset:
@@ -187,8 +187,6 @@ class AlfworldEnv(MultiStepEnv):
             return f"Error: {str(e)}"
 
     def env_response(self, messages: List[Dict[str, str]], **kwargs: Any) -> Dict[str, str]:
-        print(messages)
-        exit()
         try:
             parsed = self.llm_parser.parse(messages[-1]["content"])
             # Check if we got a valid tool field (not just None from failed parsing)
