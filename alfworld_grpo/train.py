@@ -14,7 +14,7 @@ model_kwargs = dict(
     load_in_4bit=True
 )
 
-model, tokenizer = vf.get_model_and_tokenizer(model_name, model_kwargs=model_kwargs)
+#model, tokenizer = vf.get_model_and_tokenizer(model_name, model_kwargs=model_kwargs)
 
 peft_config = LoraConfig(
     r=16,
@@ -28,8 +28,8 @@ vf_env = AlfworldEnv(
     tools=alfworld_tools
 )
 trainer = vf.GRPOEnvTrainer(
-    model=model,
-    processing_class=tokenizer,
+    model=model_name,
+    #processing_class=tokenizer,
     env=vf_env,
     reward_funcs=vf_env.get_rubric(),
     args=get_default_grpo_config(run_name="alfworld", num_gpus=2, hub_repo_id=f'crislmfroes/AlfWorld-{model_name.split("/")[1]}'),
